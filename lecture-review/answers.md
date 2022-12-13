@@ -73,3 +73,26 @@ fmap :: (A -> B) -> Wrapper(A) -> Wrapper(B)
 The function fmap takes a functor Wrapper(A) and a function (from A -> B), which returns a new functor Wrapper(B) with the outcome of applying the function on the value before closing it once more. Fmap can be regarded as immutable as it essentially returns a new copy of the container with each call.
 
 
+## Question 3 ##
+### Callbacks ###
+#### Advantage ####
+One advantage of callbacks is that you can wait for the result of the previous function call and then execute another function call. They can be implemented when the code needs to make a request that could take a relatively long time. This allows the system to handle user input events and make more async requests.
+
+#### Disadvantage ####
+Sometimes using callbacks can lead to a pattern of nested callbacks. If a subsequent asynchronous reuqest is required as a result of a prior one receiving a response, the second asynchronous request must be made using the callback logic from the previous request. These nesting callbacks can then make it difficult to debug and handle error cases. Therefore callbacks can break badly when some logical ordering of responses is needed.
+
+
+### Promises ###
+#### Advantage ####
+Promises make it easier to compose asynchronous operations. One key advantage of Promises is they have the ability to unify various diverse and incompatible conventions and patterns. They will increasingly be untilised by asynchronous browser APIs as they have combined handling of both normal exceptions and asynchronous errors. They allow an API to wait for just one result from a multiple of concurrent pending promises.
+
+#### Disadvantage ####
+A disadvantage of Promises are they only work well for single asynchronous results and don't help with larger data synchronization. This means they would not suit recurring events, as they only operate on a single value at a time. This also makes them slower compared to traditional callbacks.
+
+
+### Streams ###
+#### Advantage ####
+A major advantage of using Streams is they allow a big amount of control of data buffering. This makes it possible to detect things such as when streams start and end, handle errors, chain streams together and even cancel streams.
+
+#### Disadvantage ####
+One disadvantage of using Stream is it can't be reused. This means once a stream is consumed, it can't be used again later in the program. This can make an overload of methods, which can make it confusing.
