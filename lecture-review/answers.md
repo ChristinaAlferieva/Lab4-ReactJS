@@ -102,10 +102,25 @@ One disadvantage of using Stream is it can't be reused. This means once a stream
 
 
 ## Question 4 ##
-With the aid of a diagram and example code, describe the Cascading Style
-Sheets (CSS) Box Model and show how it can be used to space DOM
-elements
-
 The Cascading Style Sheets (CSS) Box Model is a rectangular box that wraps around every HTML element. According to this box model, the browser's engine represents every element as a box. Each box is composed of four parts: margin, border, padding and the content.
 
+Margin - an empty area which separated the elements from each other.
+Border - a border that goes around the content and padding. It is bounded by the border edge.
+Padding - transparent part that clears the space around the content.
+Content - This is where the text and images all display.
+
+Diagram of the CSS Box Model:
 ![BoxModel](boxmodel.png)
+
+Example code:
+```
+div {
+    width: 250px;
+    border: 20px black;
+    padding: 80px;
+    margin: 30px;
+}
+
+```
+
+The Box Model can be used to space DOM elements as it allows us to determine the distance between elements and build a border where necessary.
