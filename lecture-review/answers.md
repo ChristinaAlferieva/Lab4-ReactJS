@@ -104,12 +104,13 @@ One disadvantage of using Stream is it can't be reused. This means once a stream
 ## Question 4 ##
 The Cascading Style Sheets (CSS) Box Model is a rectangular box that wraps around every HTML element. According to this box model, the browser's engine represents every element as a box. Each box is composed of four parts: margin, border, padding and the content.
 
-Margin - an empty area which separated the elements from each other.
-Border - a border that goes around the content and padding. It is bounded by the border edge.
-Padding - transparent part that clears the space around the content.
-Content - This is where the text and images all display.
+**Margin** - an empty area which separated the elements from each other.
+**Border** - a border that goes around the content and padding. It is bounded by the border edge.
+**Padding** - transparent part that clears the space around the content.
+**Content** - This is where the text and images all display.
 
 Diagram of the CSS Box Model:
+
 ![BoxModel](boxmodel.png)
 
 Example code:
@@ -124,3 +125,15 @@ div {
 ```
 
 The Box Model can be used to space DOM elements as it allows us to determine the distance between elements and build a border where necessary.
+
+
+
+## Question 5 ##
+The process of the browser loading and bootstraping a rich web application from an initial URL includes:
+
+- Firstly, a user navigates to a URL in their browser. 
+- The browser then consorts to the Domain Name Servers (DNS), which is an address book that specifies where the website is located.
+- Then the browser creates a TCP/IP connection to the server IP address and the assigned port associated with that specific URL. These protocals will reveal where in the server the files to load the website are located.
+- After this, the HTTP proxy or an application server, which is listening at that IP address, accepts the connection from the browser.
+- Then the browser sends the HTTP request over the open TCP/IP connection.
+- Finally, the application server delivers the files needed, after responding to the browser over that same open TCP/IP connection and parsing the request.
