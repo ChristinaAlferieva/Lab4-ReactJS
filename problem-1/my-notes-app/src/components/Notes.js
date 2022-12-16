@@ -1,8 +1,7 @@
 import React from 'react';
 
 function Notes({element, note, setNote, setEditId}) {
-    console.log(element)
-    const removeHandler = (id) => {
+    const deleteNoteHandler = (id) => {
         const newNote = note.filter((element) => {
             if(element.id!==id) {
                 return element;
@@ -11,7 +10,7 @@ function Notes({element, note, setNote, setEditId}) {
         setNote(newNote)
     }
 
-    const editHandler = (id) => {
+    const editNoteHandler = (id) => {
         setEditId(id)
         note.filter((element) => {
             if(element.id===id) {
@@ -24,21 +23,42 @@ function Notes({element, note, setNote, setEditId}) {
     return (
         <div>
             <div className="card mb-3">
-                <div className="card-body" style={{textTransform:"capitalize"}}>
+                <div className="card-body">
                     <h5 className="card-title">{element.title}</h5>
                     <p className="card-text">{element.description}</p>
-                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => {
-                        editHandler(element.id)
+                    <button type="button" className="editBtn" style={editBtn} data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => {
+                        editNoteHandler(element.id)
                     }}>
                         Edit
                     </button>
-                    <button className="btn btn-danger mx-2" onClick={() => {
-                        removeHandler(element.id)
-                    }} >Remove</button>
+                    <button className="deleteBtn" style={deleteBtn} onClick={() => {
+                        deleteNoteHandler(element.id)
+                    }} >Delete</button>
                 </div>
             </div>
         </div>
     )
 }
 
+const editBtn = {
+    fontStyle: "italic",
+	position: "absolute",
+	height: "26px",
+	left: "14px",
+	lineHeight: "26px",
+	cursor: "pointer",
+    background: "#C0C0C0",
+    border: "10px"
+}
+
+const deleteBtn = {
+    fontStyle: "italic",
+	position: "absolute",
+	float: "right",
+	top: "6px",
+	right: "6px",
+	cursor: "pointer",
+    background: "#C0C0C0",
+    border: "10px"
+}
 export default Notes;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 function EditNote({ editId, note, setNote }) {
-  const updateHandler = () => {
+  const updateNoteHandler = () => {
     const updateNote = note.map((element) => {
       if (editId === element.id) {
         return ({
@@ -22,18 +22,17 @@ function EditNote({ editId, note, setNote }) {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">EditNotes</h1>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <h1 className="modal-title" id="exampleModalLabel">Edit Note</h1>
             </div>
             <div className="modal-body">
               <form>
                 <div className="mb-3">
                   <label for="title" className="form-label">Title</label>
-                  <input type="text" className="form-control" id="editTitle" placeholder="Enter your title" />
+                  <input type="text" className="form-control" id="editTitle" />
                 </div>
                 <div className="mb-3">
                   <label for="description" className="form-label">Description</label>
-                  <textarea id="editDescription" rows="3" className="form-control" placeholder="Enter your description"></textarea>
+                  <textarea id="editDescription" rows="3" className="form-control"></textarea>
                 </div>
                 <div className="mb-3">
                   <label for="colour" className="form-label">Colour:</label>
@@ -46,14 +45,29 @@ function EditNote({ editId, note, setNote }) {
                 </div>
               </form>
             </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={updateHandler}>Edit Note</button>
+            <div>
+              <button type="button" className="btn" style={editBtn} data-bs-dismiss="modal" onClick={updateNoteHandler}>Edit Note</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   )
+}
+
+const editBtn = {
+  marginLeft: "300px",
+  padding: "10px 6px",
+	position: "relative",
+	display: "block",
+	width: "120px",
+	borderRadius: "6px",
+	marginBottom: "18px",
+	border: "0",
+	background: "#ff1493",
+	color: "white",
+	fontSize: "14px",
+	cursor: "pointer"
 }
 
 export default EditNote;
