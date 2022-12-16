@@ -1,9 +1,14 @@
 import React from 'react';
 
-function Notes({element}) {
+function Notes({element, note, setNote}) {
     console.log(element)
     const removeHandler = (id) => {
-        
+        const newNote = note.filter((element) => {
+            if(element.id!==id) {
+                return element;
+            }
+        })
+        setNote(newNote)
     }
 
     return (

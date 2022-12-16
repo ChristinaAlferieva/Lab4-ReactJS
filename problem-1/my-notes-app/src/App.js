@@ -28,7 +28,7 @@ export default function App() {
                 </div>
               </div> : note.map((element) => {
                 return (
-                  <Notes element={element} key={element.id}/>
+                  <Notes element={element} key={element.id} note={note} setNote={setNote}/>
                 )
               })
             }
