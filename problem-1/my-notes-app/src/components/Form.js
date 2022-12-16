@@ -29,8 +29,8 @@ function Form({ title, setTitle, description, setDescription, note, setNote }) {
     return (
         <div>
             <div className="note_details" style={body}>
-                <div className="row justify-content-center">
-                    <div className="col-md-10">
+                <div className="row justify-content-left" style={{padding: "50px"}}>
+                    <div className="col-md-6">
                         <h2 style={heading}>Create a new note</h2>
                         <form>
                             <div className="mb-3">
@@ -84,4 +84,5 @@ const heading = {
 	fontStyle: "italic",
     fontSize: "40px"
 }
+
 export default Form;

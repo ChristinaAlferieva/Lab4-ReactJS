@@ -22,11 +22,11 @@ function Notes({element, note, setNote, setEditId}) {
 
     return (
         <div>
-            <div className="card mb-3">
+            <div className="card mb-2">
                 <div className="card-body">
                     <h5 className="card-title">{element.title}</h5>
                     <p className="card-text">{element.description}</p>
-                    <button type="button" className="editBtn" style={editBtn} data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => {
+                    <button className="editBtn" style={editBtn} data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => {
                         editNoteHandler(element.id)
                     }}>
                         Edit
