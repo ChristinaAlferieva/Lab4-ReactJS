@@ -5,13 +5,16 @@ import Form from './components/Form';
 import { useState } from 'react';
 
 function App() {
+  //useStates
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [note, setNote] = useState(getNotesFromLS)
   const [editId, setEditId] = useState("")
 
+  //Put the notes into local storage
   localStorage.setItem("note", JSON.stringify(note))
 
+  //Add the edit note and from pages to the home page
   return (
     <div style={body}>
       <EditNote editId={editId} note={note} setNote={setNote} />
@@ -21,11 +24,11 @@ function App() {
           <div className="my_notes">
             <br></br>
             <hr className="line" style={lineBreak}></hr>
+            {/* Dispplays all the notes and displays message if no notes have been added */}
             <h2 style={heading}>My Notes</h2>
             {
               note.length === 0 ? <div className="noteDetails">
                 <div className="card-body">
-                  <h5 className="card-title">Notes</h5>
                   <p className="card-text">No notes available yet</p>
                 </div>
               </div> : note.map((element) => {
@@ -39,6 +42,7 @@ function App() {
       </div>
     </div>
   )
+  //Gets the notes from local storage
   function getNotesFromLS() {
     const notes = JSON.parse(localStorage.getItem("note"));
 
@@ -50,6 +54,7 @@ function App() {
   }
 }
 
+//CSS for the main page
 const body = {
   background: "#fff0f5",
   fontSize: "18px"

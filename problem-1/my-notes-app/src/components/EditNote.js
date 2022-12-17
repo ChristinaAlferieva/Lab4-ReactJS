@@ -1,6 +1,7 @@
 import React from 'react';
 
 function EditNote({ editId, note, setNote }) {
+  //Allows the user to edit the note
   const updateNoteHandler = () => {
     const updateNote = note.map((element) => {
       if (editId === element.id) {
@@ -12,10 +13,10 @@ function EditNote({ editId, note, setNote }) {
         return element;
       }
     })
-    console.log(updateNote);
     setNote(updateNote);
   }
 
+  //The note form opens a window to allow the user to update the note
   return (
     <div>
       <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -55,6 +56,7 @@ function EditNote({ editId, note, setNote }) {
   )
 }
 
+//CSS for the edit button
 const editBtn = {
   marginLeft: "300px",
   padding: "10px 6px",

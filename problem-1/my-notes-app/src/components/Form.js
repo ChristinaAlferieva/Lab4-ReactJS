@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Form({ title, setTitle, description, setDescription, note, setNote }) {
+    //Allows the user to input details and stores them
     const inputDetailsHandler = (e) => {
         if (e.target.id === "title") {
             setTitle(e.target.value)
@@ -9,6 +10,7 @@ function Form({ title, setTitle, description, setDescription, note, setNote }) {
         }
     }
 
+    //Adds the note with the id, title and description
     const addNoteHandler = (e) => {
         e.preventDefault()
         if (title !== "" && description !== "") {
@@ -26,6 +28,7 @@ function Form({ title, setTitle, description, setDescription, note, setNote }) {
         setDescription("");
     }
 
+    //Form where the user can input their details and press the add note button
     return (
         <div>
             <div className="note_details" style={body}>
@@ -60,6 +63,7 @@ function Form({ title, setTitle, description, setDescription, note, setNote }) {
     )
 }
 
+//CSS for the button and body
 const btnstyle =  {
 	padding: "10px 6px",
 	position: "relative",

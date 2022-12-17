@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Notes({element, note, setNote, setEditId}) {
+    //function to delete notes
     const deleteNoteHandler = (id) => {
         const newNote = note.filter((element) => {
             if(element.id!==id) {
@@ -10,6 +11,7 @@ function Notes({element, note, setNote, setEditId}) {
         setNote(newNote)
     }
 
+    //function to edit notes
     const editNoteHandler = (id) => {
         setEditId(id)
         note.filter((element) => {
@@ -20,6 +22,7 @@ function Notes({element, note, setNote, setEditId}) {
         })
     }
 
+    //Displays the edit and delete button
     return (
         <div>
             <div className="card mb-2">
@@ -40,6 +43,7 @@ function Notes({element, note, setNote, setEditId}) {
     )
 }
 
+//CSS for the edit and delete button
 const editBtn = {
     fontStyle: "italic",
 	position: "absolute",
@@ -61,4 +65,5 @@ const deleteBtn = {
     background: "#C0C0C0",
     border: "10px"
 }
+
 export default Notes;
